@@ -1,0 +1,55 @@
+@if $toc {
+  /* - Top users________________Liste des utilisateurs */
+} @else {
+  /* Liste des utilisateurs [component]
+  ========================================================================== */
+
+  // Liste
+  .qa-top-users-table {
+    border-bottom: 1px solid theme(default-bdc);
+  }
+
+
+  // Élément de liste
+  .qa-top-users-table li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(12) rem(16); // 12px 16px
+    border-top: 1px solid theme(default-bdc);
+  }
+
+
+  // Avatar
+  .qa-top-users-table .qa-avatar-image {
+    float: left;
+    width: rem(32); // 32px
+    height: rem(32);
+  }
+
+
+  // Nom d'utilisateur
+  .qa-top-users-table .qa-user-link {
+    margin-left: rem(24); // 24px
+
+    &:only-child {
+      margin-left: rem(56); // 56px
+    }
+  }
+
+
+  // Score / Statut
+  .qa-top-users-score {
+    @include mq($until: XS) {
+      width: 100%;
+      margin: rem(8) 0 0 rem(56); // 8px 0 0 56px
+    }
+  }
+
+
+  // Spacer
+  .qa-top-users-spacer {
+    display: none;
+  }
+}

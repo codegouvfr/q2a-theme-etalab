@@ -1,0 +1,45 @@
+@if $toc {
+  /* - Tag______________________Liste de tags */
+} @else {
+  /* Liste de tags [component]
+  ========================================================================== */
+
+  // Liste de tags
+  .qa-q-item-tag-list,
+  .qa-q-view-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+  // Éléments de liste
+  .qa-q-item-tag-item,
+  .qa-q-view-tag-item {
+    display: inline-flex;
+    margin-right: rem(12); // 12px
+    margin-bottom: rem(12);
+  }
+
+
+  // Tag
+  .qa-tag-link {
+    display: inline-block;
+    padding: rem(4) rem(16) rem(8); // 4px 16px 8px
+    color: theme(tag-link-txt);
+    font-size: rem(14); // 14px
+    line-height: rem(20); // 20px
+    background-color: theme(tag-link-bgc);
+    border-radius: rem(16); // 16px
+    box-shadow: none;
+
+    // État survolé
+    &:hover {
+      background-color: theme(tag-link--hover-bgc);
+    }
+
+    // État actif
+    &:active {
+      background-color: theme(tag-link--active-bgc);
+    }
+  }
+}

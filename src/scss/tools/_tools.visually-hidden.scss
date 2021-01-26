@@ -1,0 +1,49 @@
+/* Visually hidden [mixin]
+  ========================================================================== */
+
+/**
+ * Masque visuellement un élément, mais le laisse accessible aux lecteurs d'écran
+ * @include visually-hidden($extend, $important);
+ *
+ * @author Gaël Poupard
+ * @see [Cache-cache CSS](https://www.ffoodd.fr/cache-cache-css/)
+ *
+ * | Paramètre   | Type | Valeur | Description                                                      |
+ * |-------------|------|-------|-------------------------------------------------------------------|
+ * |`$extend`    | bool | true   | étend le placeholder or inclus le code CSS comme un simple mixin |
+ * |`$important` | bool | false  | (optionnel) ajoute un `!important` à chaque valeur de la règle   |
+ *
+ * .usage {
+ *		@include visually-hidden($extend: true, $important: false);
+ *	}
+ */
+
+@mixin visually-hidden($extend: true, $important: false) {
+
+  @if ($extend != true and $extend != false) {
+    @error "`#{$extend}` needs to be `true` or `false`.";
+  }
+
+  @if ($important == true) {
+    $important: !important;
+  } @else if ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`.";
+  }
+
+  @if $extend {
+    @extend %o-visually-hidden;
+  } @else {
+    position: absolute $important;
+    width: 1px $important;
+    height: 1px $important;
+    margin: -1px $important;
+    padding: 0 $important;
+    overflow: hidden $important;
+    white-space: nowrap $important;
+    border: 0 $important;
+    clip: rect(1px, 1px, 1px, 1px) $important;
+    clip-path: inset(50%) $important;
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Etalab",
+	"description": "Etalab responsive theme based on Snowflat Theme",
+	"version": "0.1",
+	"date": "2021-01-24",
+	"author": "Etalab",
+	"author_uri": "https://www.etalab.gouv.fr/",
+	"license": "GPLv2",
+	"min_q2a": "1.7"
+}

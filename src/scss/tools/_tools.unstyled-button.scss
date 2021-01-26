@@ -1,0 +1,42 @@
+/* Unstyled button [mixin]
+  ========================================================================== */
+
+/**
+ * Strip button-like appearance from button by removing their border and background.
+ * @include unstyled-button($extend, $important);
+ *
+ * | Parameter   | Type | Value | Description                                                    |
+ * |-------------|------|-------|----------------------------------------------------------------|
+ * |`$extend`    | bool | true  | extend the placeholder or dump the CSS code as a regular mixin |
+ * |`$important` | bool | false | (optional) add `!important` declaration to each rule           |
+ *
+ * .usage {
+ *   @include unstyled-button($extend: true, $important: false);
+ * }
+ *
+ * @see `%o-unstyled-button` placeholder is defined in `./source/assets/styles/scss/objects/_objects.placeholder.scss`
+ */
+
+@mixin unstyled-button($extend: true, $important: false) {
+
+  @if ($extend != true and $extend != false) {
+    @error "`#{$extend}` needs to be `true` or `false`.";
+  }
+
+  @if ($important == true) {
+    $important: !important;
+  } @else if ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`.";
+  }
+
+  @if $extend {
+    @extend %o-unstyled-button;
+  } @else {
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+}

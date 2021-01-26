@@ -1,0 +1,18 @@
+@if $toc {
+  /* - visually-hidden__________Hides visually */
+} @else {
+  /* Hides visually [utility]
+    ========================================================================== */
+
+  [class].u-visually-hidden {
+    @include visually-hidden($extend: false, $important: false);
+  }
+
+
+  // Classes responsive
+  @include mq($until: MD) {
+    [class].u-visually-hidden\@umd {
+      @include visually-hidden($extend: false, $important: false);
+    }
+  }
+}

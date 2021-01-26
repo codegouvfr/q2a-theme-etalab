@@ -1,0 +1,27 @@
+@if $toc {
+  /* - Suggest next_____________Barre de suggestion affichée en bas de page */
+} @else {
+  /* Barre de suggestion affichée en bas de page [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qa-suggest-next {
+    margin-top: rem(32); // 32px
+    padding: rem(24); // 24px
+    background-color: theme(suggest-next-bgc);
+    border-left: rem(4) solid theme(suggest-next-bdc);
+
+    @include mq($from: SM) {
+      padding: rem(32) rem(48); // 32px 48px
+    }
+  }
+
+  // Image de favoris
+  .qa-favorite-image {
+    display: inline-block;
+    width: rem(24); // 24px
+    height: rem(24);
+    margin-left: rem(8); // 8px
+    background: url("images/icon.svg#qa-favorite") 50% 50% / contain no-repeat;
+  }
+}

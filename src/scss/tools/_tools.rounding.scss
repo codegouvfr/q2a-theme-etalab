@@ -1,0 +1,43 @@
+/* Rounding numbers
+  ========================================================================== */
+
+/**
+ * Arrondi un nombre à l'entier le (ou la décimale la) plus proche
+ *
+ * @author Alexander Futekov
+ * @see [Rounding Numbers](https://csspre.com/rounding-numbers/)
+ *
+ * | Paramètre | Type   | Valeur | Description                               |
+ * |-----------|--------|--------|-------------------------------------------|
+ * |`$float`   | nombre | aucune | nombre à arrondir                         |
+ * |`$digits`  | nombre | 2      | (optionnel) décimales à prendre en compte |
+ *
+ * .simple-usage {
+ *   width: decimals-round(100%/3)
+ * }
+ *
+ * .detailed-usage {
+ *   width: decimals-round(100%/3, 5)
+ * }
+ */
+
+@function pow($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  } @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+  @return $ret;
+}
+
+@function decimals-round($float, $digits: 2) {
+  $pow: pow(10, $digits);
+
+  @return round($float * $pow) / $pow;
+}

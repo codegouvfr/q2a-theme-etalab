@@ -1,0 +1,39 @@
+@if $toc {
+  /* - Main_____________________Contenu principal et barre latérale des pages */
+} @else {
+  /* Contenu principal et barre latérale des pages [component]
+  ========================================================================== */
+
+  // Conteneur global
+  .qa-main-wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    @include mq($from: MD) {
+      flex-direction: row;
+    }
+  }
+
+
+  // Contenu principal
+  .qa-main {
+    flex: 1 1 auto;
+  }
+
+
+  // Barre latéral
+  .qa-sidepanel {
+    @include mq($from: MD) {
+      max-width: rem(316); // 316px
+    }
+  }
+
+
+  // Ajout de la marge au contenu du panneau latéral
+  .qa-sidepanel > * {
+    @include mq($from: MD) {
+      margin-left: rem(48); // 48px
+    }
+  }
+}

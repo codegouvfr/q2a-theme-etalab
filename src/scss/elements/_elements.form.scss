@@ -1,0 +1,186 @@
+@if $toc {
+  /* - Form_____________________Styles par défaut des éléments de formulaire */
+} @else {
+  /* Styles par défaut des éléments de formulaire [element]
+   ========================================================================== */
+
+  // Labels
+  label {
+    display: block;
+    color: theme(label-txt);
+    font-size: rem(14); // 14px
+    line-height: lh(21, 14); // 21px
+    text-align: left;
+
+    // Contenant un élément small
+    small {
+      font-size: 1em;
+    }
+
+    // Précédé d'une case à cocher ou d'un bouton radio
+    input[type="checkbox"] + &,
+    input[type="radio"] + & {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: rem(12) 0; // 12px
+      cursor: pointer;
+
+      // Case à cocher
+      // Bouton radio
+      &::before {
+        content: "";
+        display: inline-block;
+        width: rem(24); // 24px
+        min-width: rem(24);
+        height: rem(24);
+        margin-right: rem(8); // 8px
+        border: 1px solid currentColor;
+      }
+    }
+
+    // Précédé d'une case à cocher
+    input[type="checkbox"] + & {
+      // Case à cocher
+      &::before {
+        border-radius: rem(4); // 4px
+        transition: background-color .1s;
+      }
+
+      // Coche
+      &::after {
+        content: "";
+        position: absolute;
+        left: rem(4);
+        width: rem(16); // 16px
+        height: rem(16);
+        background: url("images/icon.svg#checkbox") 50% 50% / contain no-repeat;
+        opacity: 0;
+        transition: opacity .1s;
+      }
+    }
+
+    // Précédé d'un radio bouton
+    input[type="radio"] + & {
+      // Bouton radio
+      &::before {
+        border-radius: 50%;
+        transform-origin: center;
+        transition: transform .3s;
+      }
+
+      // Coche
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: rem(6); // 6px
+        width: rem(12); // 12px
+        height: rem(12); // 12px
+        margin: auto;
+        background: transparent;
+        border-radius: 50%;
+        transform-origin: center;
+        transition: transform .3s;
+      }
+    }
+
+    // Précédé d'une case à cocher cochée
+    input[type="checkbox"]:checked + & {
+      // Case à cocher
+      &::before {
+        background-color: theme(checkbox--before-bgc);
+      }
+
+      // Coche
+      &::after {
+        z-index: 25001; // Pousse la coche devant le label
+        opacity: 1;
+      }
+    }
+
+    // Précédé d'un bouton radio sélectionné
+    input[type="radio"]:checked + & {
+      // Coche
+      &::after {
+        background-color: theme(radio--after-bgc);
+      }
+    }
+  }
+
+
+  // Case à cocher
+  // Bouton radio
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+
+    // État tabulé
+    &:focus + label::before {
+      z-index: 25000;
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
+  // Champs texte
+  // Champs password
+  // Champs mail
+  // Champs multiligne
+  // Liste déroulante
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    max-height: rem(40); // 40px
+    padding: rem(8) rem(16); // 8px 16px
+    color: theme(input-txt);
+    font-size: rem(14); // 14px
+    font-family: inherit;
+    line-height: lh(21, 14); // 21px
+    background-color: theme(input-bgc);
+    border: 0;
+    border-radius: rem(4) rem(4) 0 0; // 4px 4px 0 0
+    box-shadow: inset 0 -2px 0 0 currentColor;
+    appearance: none;
+
+    // Précédé d'un label
+    label + & {
+      margin-top: rem(8); // 8px
+    }
+
+    // À l'exception du dernier élément de ce type-là
+    &:not(:last-of-type) {
+      margin-bottom: rem(24); // 24px
+    }
+
+    // État tabulé
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
+  // Champs d'upload
+  input[type="file"] {
+    max-width: 100%;
+  }
+
+
+  // Liste déroulante
+  select {
+    padding: rem(8) rem(32) rem(8) rem(16); // 8px 32px 8p 16px
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%231e1e1e' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - #{rem(8)}) 50%;
+    background-size: rem(24) rem(24); // 24px 24px
+    cursor: pointer;
+  }
+}

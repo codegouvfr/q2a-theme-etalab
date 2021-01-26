@@ -1,0 +1,89 @@
+/* em, rem, lh [functions]
+  ========================================================================== */
+
+/**
+ * Convertit une valeur exprimée en pixel en une valeur exprimée en em
+ * em($target, $context)
+ *
+ * | Paramètre  | Type   | Valeur | Description                                         |
+ * |------------|--------|--------|-----------------------------------------------------|
+ * |`$target`   | nombre | aucune | Valeur en pixel à convertir en em                   |
+ * |`$context`  | nombre | aucune | Valeur en pixel de la taille de police de l'élément |
+ *
+ *  .usage {
+ *    property: em(12, 16);
+ *  }
+ */
+
+@function em($target, $context) {
+  @if (type-of($target) != number) {
+    @error "`#{$target}` needs to be a number.";
+  }
+
+  @if (type-of($context) != number) {
+    @error "`#{$context}` needs to be a number.";
+  }
+
+  @if $target == 0 {
+    @return 0;
+  }
+  @return #{$target / $context}em;
+}
+
+/**
+ * Convertit une valeur exprimée en pixel en une valeur exprimée en rem
+ * rem($target, $root)
+ *
+ * | Paramètre  | Type   | Valeur | Description                                                 |
+ * |------------|--------|--------|-------------------------------------------------------------|
+ * |`$target`   | nombre | aucune | Valeur en pixel à convertir en rem                          |
+ * |`$root`     | nombre | aucune | Valeur de la taille de police (varie en fonction du palier) |
+ *
+ *  .usage {
+ *    property: rem(12, 16);
+ *  }
+ */
+
+@function rem($target, $root: 16) {
+  @if (type-of($target) != number) {
+    @error "`#{$target}` needs to be a number.";
+  }
+
+  @if (type-of($root) != number) {
+    @error "`#{$root}` needs to be a number.";
+  }
+
+  @if $target == 0 {
+    @return 0;
+  }
+  @return #{$target / $root}rem;
+}
+
+/**
+ * Retourne la valeur calculée de l'interlignage
+ * lh($target, $context)
+ *
+ * | Paramètre  | Type   | Valeur | Description                                         |
+ * |------------|--------|--------|-----------------------------------------------------|
+ * |`$target`   | nombre | aucune | Valeur en pixel de l'interlignage souhaité          |
+ * |`$context`  | nombre | aucune | Valeur en pixel de la taille de police de l'élément |
+ *
+ *  .usage {
+ *    property: lh(18, 12);
+ *  }
+ */
+
+@function lh($target, $context) {
+  @if (type-of($target) != number) {
+    @error "`#{$target}` needs to be a number.";
+  }
+
+  @if (type-of($context) != number) {
+    @error "`#{$context}` needs to be a number.";
+  }
+
+  @if $target == 0 {
+    @return 0;
+  }
+  @return #{decimals-round($target / $context)};
+}

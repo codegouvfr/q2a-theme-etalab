@@ -1,0 +1,97 @@
+@if $toc {
+  /* - Footer___________________Pied de page du site */
+} @else {
+  /* Pied de page du site [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qam-footer-box {
+    @extend %o-wrapper;
+    margin-top: rem(40); // 40px
+  }
+
+
+  // Conteneur interne
+  .qa-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: rem(16) 0; // 16px
+    font-size: rem(12); // 12px
+    border-top: 1px solid theme(default-bdc);
+
+    @include mq($until: XS) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+
+  // Conteneur de la navigation
+  .qa-nav-footer {
+    @include mq($from: XS) {
+      margin-right: auto;
+    }
+  }
+
+
+  // Liste de copyright
+  .qa-attribution-footer {
+    text-align: right;
+
+    @include mq($until: XS) {
+      margin-top: rem(16); // 16px
+    }
+
+    @include mq($from: XS) {
+      margin-left: rem(32); // 32px
+    }
+  }
+
+
+  // Elements de liste
+  .qa-attribution-footer-item,
+  .qa-nav-footer-item {
+    position: relative;
+    display: inline;
+
+    &:not(:first-child) {
+      margin-left: rem(4); // 4px
+    }
+
+    &:not(:first-child)::before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: rem(16); // 16px
+      margin-right: rem(4); // 4px
+      vertical-align: middle;
+      background-color: theme(default-bdc);
+    }
+  }
+
+
+  // Liens
+  .qa-attribution-footer-link,
+  .qa-nav-footer-link {
+    color: theme(attribution-footer-link-txt);
+    box-shadow: 0 1px 0 0 currentColor;
+
+    &:hover,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+
+  // Page courante
+  .qa-nav-footer-link[aria-current="true"] {
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 1px 0 0 currentColor;
+    }
+  }
+}

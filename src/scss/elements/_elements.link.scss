@@ -1,0 +1,19 @@
+@if $toc {
+  /* - Links____________________Styles par défaut des liens */
+} @else {
+  /* Styles par défaut des liens [element]
+   ========================================================================== */
+
+  a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 1px 0 0 currentColor;
+  }
+
+  a:focus {
+    z-index: 25000;
+    outline: 2px solid theme(default-focus);
+    outline-offset: 2px;
+  }
+}

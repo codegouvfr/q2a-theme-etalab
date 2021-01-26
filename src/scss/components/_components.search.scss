@@ -1,0 +1,118 @@
+@if $toc {
+  /* - Search___________________Formulaire de recherche du header */
+} @else {
+  /* Formulaire de recherche du header [component]
+  ========================================================================== */
+
+  // Bouton de recherche
+  .qam-search-toggle {
+    @include unstyled-button($extend: true, $important: false);
+
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+
+    @include mq($until: SM) { // stylelint-disable order/order
+      position: absolute;
+      top: rem(104); // 104px
+      right: rem(136); // 136px
+    }
+
+    @include mq($from: SM, $until: MD) {
+      position: absolute;
+      top: rem(44); // 44px
+      right: rem(152); // 152px
+    }
+
+    @include mq($from: MD) {
+      display: none;
+    }
+  }
+
+
+  // Conteneur interne
+  [id="qam-search"] {
+    @include mq($until: MD) {
+      position: absolute;
+      top: 100%;
+      right: rem(20); // 20px
+      left: rem(20); // 20px
+      z-index: 1090;
+      padding: rem(32) rem(20); // 40px 20px
+      text-align: left;
+      background-color: theme(default-bgc);
+      border-top: 1px solid theme(default-bdc);
+      box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
+    }
+
+    @include mq($until: SM) {
+      right: 0;
+      left: 0;
+    }
+
+    @include mq($from: MD) {
+      display: block;
+    }
+  }
+
+
+  // Formulaire
+  .qam-search form {
+    display: flex;
+  }
+
+
+  // Champs de recherche
+  [class].qam-search .qa-search-field {
+    max-height: none;
+    margin-bottom: 0;
+    box-shadow: inset 0 -2px 0 0 theme(search-field-sdw);
+
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+
+
+  // Bouton de validation
+  .qa-search-button {
+    @include unstyled-button($extend: true, $important: false);
+    flex: 1 0 auto;
+    width: rem(40); // 40px
+    height: rem(40);
+    min-height: auto;
+    padding-right: rem(8); // 8px
+    padding-left: rem(8);
+    background-color: theme(search-button-bgc);
+    border-radius: 0 rem(4) 0 0; // 4px
+    appearance: none;
+
+    // Icône
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(22); // 22px
+      height: rem(22);
+      margin-right: rem(4); // 4px
+      vertical-align: sub;
+      background: url("images/icon.svg#search-button") 50% 50% / contain no-repeat;
+    }
+
+    // État tabulé
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+
+    // État survolé
+    &:hover {
+      background-image: linear-gradient(0deg, theme(button--hover-bgc), theme(button--hover-bgc));
+    }
+
+    // État actif
+    &:active {
+      background-image: linear-gradient(0deg, theme(button--active-bgc), theme(button--active-bgc));
+    }
+  }
+}

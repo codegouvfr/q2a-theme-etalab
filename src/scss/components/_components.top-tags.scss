@@ -1,0 +1,37 @@
+@if $toc {
+  /* - Top tags______________________Liste des tags les plus utilisés */
+} @else {
+  /* Liste des tags les plus utilisés  [component]
+  ========================================================================== */
+
+  // Listes de tags
+  .qa-top-tags-table {
+    margin-bottom: rem(8); // 8px
+    font-size: rem(16); // 16px
+    line-height: lh(24, 16); // 24px
+  }
+
+
+  // Éléments de liste
+  .qa-top-tags-table li {
+    margin-bottom: rem(8); // 8px
+  }
+
+
+  // Marqueur
+  .qa-top-tags-table li::before {
+    content: "";
+    display: inline-block;
+    width: rem(6); // 6px
+    height: rem(6);
+    margin-right: rem(8); // 8px
+    vertical-align: rem(2); // 2px
+    background-color: theme(default-txt);
+    border-radius: 50%;
+  }
+
+  // Décompte
+  .qa-top-tags-count {
+    margin-right: rem(4); // 4px
+  }
+}

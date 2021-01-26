@@ -1,0 +1,52 @@
+@if $toc {
+  /* - Miscellaneous____________Définition de la durée des animations et des transitions, des caractéristiques de la police et de la grille */
+} @else {
+  /* Définition de la durée des animations et des transitions, des caractéristiques de la police et de la grille [settings]
+  ========================================================================== */
+
+  :root {
+    // Durée des transitions et des animations
+    // @see [Implementing a reduced-motion mode](https://hugogiraudel.com/2018/03/19/implementing-a-reduced-motion-mode/)
+    --animation-duration: 1s;
+    --transition-duration: 250ms;
+  }
+}
+
+
+// Import des fontes personnalisées
+@font-face {
+  font-family: "Marianne";
+  src: local("Marianne-Regular"),
+      local("marianne-regular"),
+      local("marianneregular"),
+      url("fonts/Marianne-Regular.woff2") format("woff2"),
+      url("fonts/Marianne-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Marianne";
+  src: local("Marianne-Bold"),
+      local("marianne-bold"),
+      local("mariannebold"),
+      url("fonts/Marianne-Bold.woff2") format("woff2"),
+      url("fonts/Marianne-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// Pile de polices utilisée (Marianne - fonte principale en version bold & regular)
+$sans-serif: Marianne, Arial, sans-serif;
+$default-font: $sans-serif;
+
+
+// Tailles de police (16px)
+$font-size: 100%;
+
+
+// Valeur d'une unité de rythme vertical (8px)
+$baseline: .5;

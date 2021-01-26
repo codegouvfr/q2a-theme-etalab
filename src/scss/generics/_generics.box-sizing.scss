@@ -1,0 +1,17 @@
+@if $toc {
+  /* - Box-sizing_______________Modification du modèle de boîte */
+} @else {
+  /* Modification du modèle de boîte
+    ========================================================================== */
+
+  /**
+  * Mise à jour de la valeur de `box-sizing` pour que le calcul de la largeur ne soit pas affecté par les marges internes et les bordures.
+  * @see [Box-sizing](https://hankchizljaw.com/wrote/a-modern-css-reset/#heading-breaking-it-down)
+  */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}

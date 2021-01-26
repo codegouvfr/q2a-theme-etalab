@@ -1,0 +1,48 @@
+@if $toc {
+  /* - Nav sub__________________Sous-menu */
+} @else {
+  /* Sous-menu [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qa-nav-sub {
+    border-top: 1px solid theme(default-bdc);
+  }
+
+
+  // Liste
+  .qa-nav-sub-list {
+    @extend %o-wrapper;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+
+  // Éléments de liste
+  .qa-nav-sub-item {
+    display: flex;
+  }
+
+
+  // Liens
+  .qa-nav-sub-link {
+    padding: rem(12) rem(24); // 12px 24px
+    font-size: rem(14); // 14px
+    line-height: lh(16, 14); // 16px
+    box-shadow: none;
+
+    // État survolé
+    &:hover {
+      background-image: linear-gradient(0deg, theme(nav-sub-link--hover-bgc), theme(nav-sub-link--hover-bgc));
+    }
+
+    // Lien actif
+    &[aria-current="true"] {
+      background-color: theme(nav-sub-link--hover-bgc);
+      box-shadow: inset 0 -2px 0 0 theme(nav-sub-link-current-sdw);
+    }
+  }
+
+}

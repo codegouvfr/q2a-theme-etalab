@@ -1,0 +1,45 @@
+@if $toc {
+  /* - Template user____________Page utilisateur */
+} @else {
+  /* Page utilisateur  [component]
+  ========================================================================== */
+
+  // Conteneur global
+  .qa-template-user .qa-main {
+    position: relative; // Utile à l'avatar
+  }
+
+
+  // Titres
+  .qa-template-user h2 {
+    margin-top: rem(52); // 52px
+  }
+
+
+  // Conteneur de l'avatar
+  .qa-template-user [id="avatar"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+  // Avatar
+  .qa-template-user .qa-avatar-image {
+    width: rem(144); // 144px
+    height: rem(144);
+  }
+
+
+  // Envoyer un message à l'utilisateur
+  [id="level"] .qa-form-wide-static a {
+    @extend %qam-button;
+    margin: 0 0 0 rem(8); // 0 0 0 8px
+  }
+
+
+  // Liste des privilèges
+  [id="qa-permits"] {
+    padding-left: rem(16); // 16px
+  }
+}

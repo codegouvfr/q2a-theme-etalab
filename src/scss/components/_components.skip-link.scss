@@ -1,0 +1,33 @@
+@if $toc {
+  /* - Skip link________________Liens d'évitement */
+} @else {
+  /* Liens d'évitement [component]
+  ========================================================================== */
+
+  // Conteneur global
+  .qam-skip {
+    position: absolute;
+    padding: rem(16) 0; // 16px
+    background-color: theme(skip-bgc);
+    border-top: 1px solid theme(skip-bdc);
+    transform: translateY(-400%);
+
+    &:focus-within {
+      position: relative;
+      transform: translateY(0);
+    }
+  }
+
+
+  // Conteneur interne
+  .qam-skip-wrapper {
+    @extend %o-wrapper;
+  }
+
+
+  // Lien d'évitement
+  .qam-skip-link {
+    color: theme(skip-link-txt);
+    box-shadow: none;
+  }
+}

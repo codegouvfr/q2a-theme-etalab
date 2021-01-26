@@ -1,0 +1,13 @@
+@if $toc {
+  /* - Info___________________Paragraphe apportant des précisions quelconques */
+} @else {
+  /* Paragraphe apportant des précisions quelconques [component]
+  ========================================================================== */
+
+  .qam-info {
+    margin-bottom: rem(16); // 16px
+    color: theme(info-txt);
+    font-size: rem(12); // 12px
+    line-height: lh(18, 12); // 18px
+  }
+}

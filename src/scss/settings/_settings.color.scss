@@ -1,0 +1,115 @@
+@if $toc {
+  /* - Color____________________Définition et assignation des couleurs */
+} @else {
+  /* Définition et assignation des couleurs [settings]
+  ========================================================================== */
+}
+
+// Définition
+// @note Les couleurs sont nommées grâce à l'outil [Chir.ag’s Name that Color](http://chir.ag/projects/name-that-color/).
+
+// Definition
+$periwinkle-gray: #cdcdea;
+$pigeon-post: #b6b6e0;
+$governor-bay: #2e2ec8;
+$dark-blue: #0000c3;
+$blue-ribbon: #006be6;
+$cerulean-blue: #3b55d1;
+$endeavou: #0053b3;
+$congress-blue: #003b80;
+$navy-blue: #000091;
+$white: #fff;
+$gallery: #f0f0f0;
+$alabaster: #f8f8f8;
+$mystic: #ebeff3;
+$alto: #e0e0e0;
+$snuff: #e5e5f4;
+$geyser: #c9d3df;
+$blue-bayoux: #53657d;
+$dove-gray: #6a6a6a;
+$mine-shaft: #383838;
+$cod-gray: #1c1c1c;
+$mountain-meadow: #169b62;
+$jewel: #0d6635;
+$golden-fizz: #ffed34;
+$yellow-orange: #ff9947;
+$blaze-orange: #fa5c00;
+$bright-red: #b60000;
+
+// Abbreviations
+// - bgc => background-color
+// - bgi => background-image
+// - bdc => border-color
+// - txt => text (color)
+// - plh => placeholder (color)
+// - sdw => shadow
+
+// prettier-ignore
+$theme-colors: (
+  // Valeurs par défaut
+  default-bdc: $geyser,
+  default-bgc: $white,
+  default-txt: $mine-shaft,
+  default-box-shadow: $cod-gray,
+  default-focus: $blue-ribbon,
+
+
+  // Assignation [elements]
+  checkbox--before-bgc: $navy-blue,
+  headline-txt: $cod-gray,
+  input-txt: $cod-gray,
+  input-bgc: $gallery,
+  label-txt: $cod-gray,
+  radio--after-bgc: $navy-blue,
+
+  // Assignation [components]
+  attribution-footer-link-txt: $blue-bayoux,
+  browse-cat-note-txt: $dove-gray,
+  button-bgc: $navy-blue,
+  button-txt: $white,
+  button--hover-bgc: $dark-blue,
+  button--active-bgc: $governor-bay,
+  button-secondary-bgc: $white,
+  button-secondary-txt: $navy-blue,
+  button-secondary--hover-bgc: $gallery,
+  button-secondary--active-bgc: $alto,
+  error-bdc: $bright-red,
+  form-error-txt: $bright-red,
+  form-ok-txt: $jewel,
+  form-note-txt: $dove-gray,
+  form-help-txt: $navy-blue,
+  info-txt: $dove-gray,
+  nav-main-ask-bgc: $gallery,
+  nav-main-link-txt: $endeavou,
+  nav-main-link-sm-txt: $cod-gray,
+  nav-main-link-current-txt: $navy-blue,
+  nav-sub-link--hover-bgc: $gallery,
+  nav-sub-link-current-bgc: $gallery,
+  nav-sub-link-current-sdw: $navy-blue,
+  notice-bdc: $cerulean-blue,
+  page-links-item-txt: $cod-gray,
+  page-links-item--current-bgc: $navy-blue,
+  page-links-item--current-txt: $white,
+  page-link--hover-bgc: $mystic,
+  page-link--active-bgc: $alto,
+  message-avatar-meta: $dove-gray,
+  q-list-item: $alabaster,
+  q-list-item--favorited-bdc: $navy-blue,
+  q-item-flags: $bright-red,
+  q-view-closed: $yellow-orange,
+  a-list-item-selected: $golden-fizz,
+  search-field-sdw: $navy-blue,
+  search-button-bgc: $navy-blue,
+  skip-bdc: $dove-gray,
+  skip-bgc: $mystic,
+  skip-link-txt: $congress-blue,
+  success-bdc: $jewel,
+  suggest-next-bdc: $navy-blue,
+  suggest-next-bgc: $gallery,
+  tag-link-txt: $navy-blue,
+  tag-link-bgc: $snuff,
+  tag-link--hover-bgc: $periwinkle-gray,
+  tag-link--active-bgc: $pigeon-post,
+  topbar-service-link-txt: $cod-gray,
+  warning-bdc: $blaze-orange,
+);

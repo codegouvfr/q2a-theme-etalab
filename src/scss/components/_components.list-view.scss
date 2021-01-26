@@ -1,0 +1,365 @@
+@if $toc {
+  /* - Q list & view____________Liste de questions et visualisation d'une question */
+} @else {
+  /* Liste de questions et visualisation d'une question [component]
+  ========================================================================== */
+
+  // Conteneur global
+  .qa-q-list {
+    margin-bottom: rem(24); // 12px
+  }
+
+
+  // Conteneur individuel
+  .qa-q-list-item,
+  .qa-a-list-item,
+  .qa-c-list-item,
+  .qa-part-q-view {
+    position: relative; // Nécessaire au positionnement des statistiques et du nombre de réponses
+    margin-bottom: rem(12); // 12px
+    padding: rem(16) rem(16) rem(16) rem(170); // 16px 16px 16px 170px
+    background-color: theme(q-list-item);
+
+    @include mq($from: SM) {
+      min-height: rem(175); // 175px
+      padding: rem(24) rem(24) rem(24) rem(192); // 24px 24px 24px 192px
+    }
+  }
+
+  // Questions et commentaires masqués
+  .qa-main-hidden {
+    .qa-main-heading,
+    .qa-q-view-stats,
+    .qa-q-view-avatar-meta,
+    .qa-q-view-content,
+    .qa-part-a-list,
+    .qa-q-view-follows,
+    .qa-q-view-closed,
+    .qa-q-view-tags {
+      opacity: .6;
+    }
+  }
+
+  .qa-a-list-item-hidden {
+    .qa-voting,
+    .qa-a-item-main form > *,
+    .qa-a-item-main .qa-a-item-c-list {
+      opacity: .6;
+    }
+  }
+
+  .qa-c-item-hidden {
+    .qa-voting,
+    .qa-c-item-avatar-meta,
+    .qa-c-item-content {
+      opacity: .6;
+    }
+  }
+
+  // Boutons de suppression et de réaffichage de l'élément
+  .qa-a-list-item-hidden .qa-a-item-main .qa-a-item-buttons {
+    opacity: 1;
+  }
+
+
+  // Réponse sélectionnée
+  .qa-a-list-item-selected {
+    background-color: rgba(theme(a-list-item-selected), .1);
+    border-left: rem(4) solid theme(a-list-item-selected); // 4px
+
+    @include mq($from: SM) {
+      min-height: rem(232); // 232px
+    }
+  }
+
+  // Question fermée
+  .qa-q-view-closed {
+    margin: rem(40) 0 rem(24); // 32px 0
+    padding: rem(16) rem(24); // 16px 24px
+    font-weight: bold;
+    background-color: rgba(theme(q-view-closed), .1);
+    border-left: rem(4) solid theme(q-view-closed); // 4px
+
+    // Raison
+    .qa-q-view-closed-content {
+      display: block;
+      font-weight: normal;
+    }
+  }
+
+
+  // Question mise en favori
+  .qa-q-list-item.qa-q-favorited {
+    border-left: rem(4) solid theme(q-list-item--favorited-bdc);
+  }
+
+
+  // Titre
+  .qa-q-item-title {
+    margin: 0 0 rem(8) 0; // 0 0 8px 0
+    font-size: rem(20); // 20px
+    line-height: lh(33, 20); // 33px
+
+    @include mq($from: SM) {
+      font-size: rem(24); // 24px
+      line-height: lh(33, 24); // 33px
+    }
+  }
+
+
+  // Réponse et commentaire
+  .qa-q-view-c-list,
+  .qa-a-item-c-list {
+    margin-top: rem(16); // 16px
+  }
+
+  .qa-c-list-item {
+    background-color: theme(default-bgc);
+  }
+
+
+  // Question cloturée (dans une liste)
+  .qam-q-list-close-icon {
+    float: left;
+    margin: rem(10) rem(10) 0 0; // 10px 10px 0 0
+
+    @include mq($from: SM) {
+      margin: rem(12) rem(14) 0 0; // 12px 14px 0 0
+    }
+  }
+
+  // Question cloturée (image du titre)
+  .qam-q-view-close-icon {
+    float: left;
+    margin: rem(21) rem(10) 0 0; // 21px 10px 0 0
+
+    @include mq($from: SM) {
+      margin: rem(24) rem(14) 0 0; // 24px 14px 0 0
+    }
+  }
+
+
+  // Statistiques
+  .qa-q-item-stats,
+  .qa-q-view-stats,
+  .qa-a-list-item > form > .qa-voting,
+  .qa-c-list-item > form > .qa-voting {
+    position: absolute;
+    top: rem(16); // 16px
+    left: rem(16);
+    width: rem(128); // 128px
+    padding-right: rem(8); // 8px
+    border-right: 1px solid theme(default-bdc);
+
+    @include mq($from: SM) {
+      top: rem(24); // 24px
+      left: rem(24);
+      width: rem(136); // 136px
+      padding-right: rem(16); // 16px
+    }
+  }
+
+
+  // Conteneur des votes
+  .qa-voting {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Nombre de votes calculé
+  .qa-voting-net {
+    justify-content: center;
+    min-height: rem(88); // 88px
+  }
+
+
+  // Conteneur des boutons
+  .qam-vote-first-button,
+  .qam-vote-second-button {
+    width: rem(16); // 16px
+    height: rem(16);
+    margin: 0 auto; // 0 auto
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+
+    @include mq($from: SM) {
+      width: rem(20); // 20px
+      height: rem(20);
+    }
+
+    &:focus-within {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
+  // Conteneur du second bouton
+  .qam-vote-second-button {
+    order: 3;
+  }
+
+
+  // Boutons de vote
+  [class*="qa-vote-button"] {
+    @include unstyled-button($extend: true, $important: false);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    // État désactivé
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  // Arrières-plan
+  $icons: "vote-up", "vote-down", "vote-up-disabled", "vote-down-disabled", "voted"; // stylelint-disable order/order
+
+  @each $icon in $icons {
+    .qam-#{$icon} {
+      background-image: url("images/icon.svg##{$icon}");
+    }
+  }
+
+
+  // Nombre de vues
+  // Nombre de vote
+  .qa-view-count,
+  .qa-vote-count {
+    font-size: rem(14); // 14px
+    line-height: lh(21, 16); // 21px
+    text-align: center;
+  }
+
+  // Nombre de vues
+  .qa-view-count {
+    margin-top: rem(12); // 12px
+  }
+
+  // Nombre de vote
+  .qa-vote-count {
+    display: block;
+    margin: rem(4) 0; // 4px 0
+  }
+
+
+  // Nombre de votes positifs
+  // Nombre de votes négatifs
+  // Nombre de vues
+  .qa-upvote-count,
+  .qa-downvote-count,
+  .qa-view-count {
+    display: block;
+  }
+
+  // Nombre de votes positifs
+  .qa-upvote-count {
+    margin-bottom: rem(4); // 4px
+  }
+
+  // Nombre de votes négatifs
+  .qa-downvote-count {
+    margin-top: rem(4); // 4px
+  }
+
+  // Nombre de vote calculé
+  .qa-vote-count {
+    margin: rem(8) 0; // 8px 0
+  }
+
+
+  // Détails divers et avatar
+  .qa-q-view-avatar-meta,
+  .qa-q-item-avatar-meta,
+  .qa-a-item-avatar-meta,
+  .qa-c-item-avatar-meta {
+    margin-bottom: rem(16); // 16px
+    overflow: hidden; // Ajoute un contexte de formattage
+  }
+
+
+  // Avatar
+  .qa-q-view-avatar,
+  .qa-a-item-avatar {
+    float: right;
+    margin-left: rem(16); // 16px
+  }
+
+
+  // Avatar des commentaires
+  .qa-c-item-avatar {
+    display: none;
+  }
+
+
+  // Date de publication
+  // Nombre de réponses
+  .qa-q-item-when-data,
+  .qa-a-count {
+    font-weight: 700;
+  }
+
+  // Nombre de réponses précédé d'une liste de tags
+  .qa-q-item-tags + .qa-a-count {
+    margin-top: rem(4);
+  }
+
+
+  // Question signalée
+  .qa-q-item-flags,
+  .qa-q-view-flags,
+  .qa-a-item-flags,
+  .qa-c-item-flags {
+    display: inline-block;
+    margin-left: rem(8); // 8px
+    color: theme(q-item-flags);
+    font-weight: bold;
+  }
+
+
+  // Bouton de sélection de réponse
+  .qa-a-selection {
+    position: absolute;
+    top: rem(128); // 128px
+    left: rem(24); // 24px
+    width: rem(120); // 120px
+    text-align: center;
+  }
+
+  // Texte "meilleure réponse"
+  .qa-a-selected-text {
+    margin-bottom: rem(8); // 8px
+    font-weight: bold;
+    font-size: rem(12); // 12px
+    line-height: lh(18, 12); // 18px
+  }
+
+
+  // Texte de la question
+  .qa-q-view-content,
+  .qa-a-item-content,
+  .qa-c-item-content,
+  .qa-q-view-follows {
+    margin-bottom: rem(16); // 16px
+    word-wrap: break-word;
+  }
+
+
+  // Boutons d'interactions
+  .qa-template-question .qa-form-light-buttons {
+    display: flex;
+    flex-direction: row;
+
+    input:last-child {
+      margin-left: auto;
+    }
+  }
+
+
+  // Loader
+  .qa-waiting {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+@if $toc {
+  /* - Page_____________________Styles par défaut des balises <html> et <body> */
+} @else {
+  /* Styles par défaut des balises <html> et <body> [element]
+   ========================================================================== */
+
+  /**
+  * @note :
+  * - Les variables (css et scss) sont définies dans le fichier `_settings.miscellaneous`
+  * - Les couleurs dans le fichier `_settings.color`
+  */
+
+  html {
+    font-family: $default-font;
+    font-size: $font-size; // 16px
+    line-height: 1.5; // 24px
+    color: theme(default-txt);
+    scroll-behavior: smooth;
+  }
+}

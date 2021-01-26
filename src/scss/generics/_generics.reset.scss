@@ -1,0 +1,59 @@
+@if $toc {
+  /* - Reset____________________Réinitialisation ciblée du style de certains éléments */
+} @else {
+  /* Réinitialisation ciblée du style de certains éléments
+   ========================================================================== */
+
+  // Supprime le `pointer-events` à l'intérieur des boutons
+  // @see [Be Slightly Careful with Sub Elements of Clickable Things](https://css-tricks.com/slightly-careful-sub-elements-clickable-things/)
+  button > * {
+    pointer-events: none;
+  }
+
+  // Supprime la marge interne et le style par défaut des listes munies d'une classe
+  ul[class],
+  ol[class] {
+    padding: 0;
+    list-style: none;
+  }
+
+  // Supprime les marges par défaut
+  body,
+  p,
+  ul,
+  ol,
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  // Supprime l'espace inférieur entre ces éléments et leur parent
+  // @see [Vertical align media elements](https://github.com/h5bp/html5-boilerplate/issues/440)
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+
+  // Modifie le style par défaut des images
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  // Force l'héritage de la police sur les boutons et les champs de formulaires
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}

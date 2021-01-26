@@ -1,0 +1,24 @@
+@if $toc {
+  /* - Reduced-motion___________Application de styles spécifiques au mode « reduced motion » */
+} @else {
+  /* Application de styles spécifiques au mode « reduced motion »
+   ========================================================================== */
+
+  /**
+  * @see [Implementing a reduced-motion mode](https://hugogiraudel.com/2018/03/19/implementing-a-reduced-motion-mode/)
+  * @see [Smooth scrolling links with only CSS](https://gomakethings.com/smooth-scrolling-links-with-only-css/)
+  */
+
+  @media (prefers-reduced-motion: reduce) {
+    // Désactive les animations et les transitions
+    :root {
+      --animation-duration: 0;
+      --transition-duration: 0;
+    }
+
+    // Restaure le mode de défilement par défaut
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

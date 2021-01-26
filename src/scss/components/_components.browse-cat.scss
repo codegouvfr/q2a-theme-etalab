@@ -1,0 +1,107 @@
+@if $toc {
+  /* - Browse cat_______________Liste des catégories */
+} @else {
+  /* Liste des catégories [component]
+  ========================================================================== */
+
+  // Liste initiale
+  .qa-part-nav-list > .qa-browse-cat-list {
+    border-bottom: 1px solid theme(default-bdc);
+  }
+
+
+  // Élément de liste
+  .qa-browse-cat-item {
+    position: relative; // Nécessaire au positionnement du nombre de questions
+    padding-left: rem(16); // 16px
+
+    // Marqueur
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(8); // 8px
+      height: rem(2); // 2px
+      margin: 0 rem(8) 0 rem(16); // 0 8px 0 16px
+      vertical-align: middle;
+      background-color: theme(default-txt);
+    }
+  }
+
+
+  // Conteneur de la description et du nombre de question
+  .qa-browse-cat-note {
+    display: block;
+    margin: rem(4) 0 rem(12) rem(16); // 4px 0 12px 16px
+  }
+
+
+  // Nombre de question
+  .qa-browse-cat-note a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: rem(16); // 16px
+    line-height: lh(24, 16); // 24px
+  }
+
+
+  // Élément de liste (de niveau 1)
+  .qa-part-nav-list > .qa-browse-cat-list > .qa-browse-cat-item {
+    padding: rem(12) rem(16); // 12px 16px
+    border-top: 1px solid theme(default-bdc);
+
+    // Marqueur
+    &::before {
+      content: normal;
+    }
+
+    // Description (de niveau 1)
+    > .qa-browse-cat-note { // stylelint-disable selector-max-compound-selectors
+      margin-left: 0;
+
+      // Nombre de question
+      a {
+        right: rem(16); // 16px
+      }
+    }
+
+    // Item replié (de niveau 1)
+    &:not(.qa-browse-cat-open) {
+      padding-bottom: rem(12); // 12px
+
+      // Description
+      .qa-browse-cat-note {
+        margin-bottom: 0;
+      }
+    }
+
+    // Intitulé de la catégorie (de niveau 1)
+    > .qa-browse-cat-link,
+    > .qa-browse-cat-nolink {
+      margin-top: rem(12); // 12px
+    }
+
+    // Nombre de question (de niveau 1)
+    > .qa-browse-cat-note a {
+      top: rem(12); // 12px
+    }
+
+    // Liste imbriquée
+    .qa-browse-cat-list {
+      margin-bottom: 0;
+    }
+  }
+
+
+  // Listes imbriquées
+  ul .qa-browse-cat-list {
+    margin: rem(16) 0 rem(24); // 16px 0 24px 0
+  }
+
+
+  // Description
+  .qa-browse-cat-note {
+    color: theme(browse-cat-note-txt);
+    font-size: rem(12); // 12px
+  }
+}

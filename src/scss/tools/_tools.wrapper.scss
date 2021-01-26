@@ -1,0 +1,43 @@
+/* Wrapper [mixin]
+  ========================================================================== */
+
+/**
+ * Restreint la largeur du contenu
+ * @include wrapper($extend);
+ *
+ *
+ * | Paramètre   | Type | Valeur | Description                                                      |
+ * |-------------|------|-------|-------------------------------------------------------------------|
+ * |`$extend`    | bool | true   | étend le placeholder or inclus le code CSS comme un simple mixin |
+ *
+ * .usage {
+ *		@include wrapper($extend: true);
+ *	}
+ */
+
+@mixin wrapper($extend: true) {
+
+  @if ($extend != true and $extend != false) {
+    @error "`#{$extend}` needs to be `true` or `false`.";
+  }
+
+  @if $extend {
+    @extend %o-wrapper;
+  } @else {
+    @include mq($until: XS) {
+      padding-right: rem(16); // 16px
+      padding-left: rem(16);
+    }
+
+    @include mq($from: XS, $until: LG) {
+      padding-right: rem(32); // 32px
+      padding-left: rem(32);
+    }
+
+    @include mq($from: LG) {
+      max-width: rem(1136); // 1136px
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

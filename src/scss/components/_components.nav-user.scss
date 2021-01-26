@@ -1,0 +1,59 @@
+@if $toc {
+  /* - Nav user_________________Bloc de profil */
+} @else {
+  /* Bloc de profil [component]
+  ========================================================================== */
+
+  // Elements de liste - État connecté
+  .qa-nav-user-item {
+    padding: rem(10) rem(20); // 10px 20px
+    font-size: rem(14); // 14px
+    line-height: lh(28, 14); // 28px
+  }
+
+  // Elements de liste (à l'exception du dernier)
+  .qa-nav-user-item:not(:last-child) {
+    border-bottom: 1px solid theme(default-bdc);
+  }
+
+  // Icônes
+  .qa-nav-user-item::before {
+    content: "";
+    display: inline-block;
+    width: rem(16); // 16px
+    height: rem(16);
+    margin-right: rem(4); // 4px
+    vertical-align: sub;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+
+  // Arrières-plan
+  $icons: "nav-logged-in-points", "nav-user-updates", "nav-user-logout"; // stylelint-disable order/order
+
+  @each $icon in $icons {
+    .qa-#{$icon}::before {
+      background-image: url("images/icon.svg##{$icon}");
+    }
+  }
+
+
+  // Liens
+  .qa-nav-user-list .qa-user-link,
+  .qa-nav-user-list .qa-nav-user-link {
+    color: theme(nav-main-link-sm-txt);
+    font-weight: 700;
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      opacity: .75;
+    }
+  }
+
+  // Lien de profil
+  .qa-nav-user-list .qa-user-link {
+    margin-right: rem(8); // 8px
+  }
+}

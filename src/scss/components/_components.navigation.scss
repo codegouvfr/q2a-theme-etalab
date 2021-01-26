@@ -1,0 +1,117 @@
+@if $toc {
+  /* - Navigation_______________Navigation principale du site */
+} @else {
+  /* Navigation principale du site [component]
+  ========================================================================== */
+
+  // Menu
+  .qa-nav-main {
+    font-size: rem(14); // 14px
+
+    @include mq($until: MD) {
+      position: absolute;
+      top: 100%;
+      right: rem(20); // 20px
+      left: rem(20); // 20px
+      z-index: 1090;
+      background-color: theme(default-bgc);
+      border-top: 1px solid theme(default-bdc);
+      box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
+    }
+
+    @include mq($until: SM) {
+      right: 0;
+      left: 0;
+    }
+
+    @include mq($from: MD) {
+      display: block;
+    }
+  }
+
+
+  // Elements de liste
+  [class^="qa-nav-main-item"] {
+    @include mq($until: MD) {
+      padding: rem(10) rem(20); // 10px 20px
+      line-height: lh(28, 14); // 28px
+    }
+
+    @include mq($from: MD) {
+      display: inline-block;
+      margin: 0 0 rem(8);
+
+      &:not(:first-child) {
+        margin-left: rem(4); // 4px
+        padding-left: rem(8); // 12px
+        border-left: 1px solid theme(default-bdc);
+      }
+    }
+  }
+
+  // Elements de liste (à l'exception du dernier)
+  [class^="qa-nav-main-item"]:not(:last-child) {
+    @include mq($until: MD) {
+      border-bottom: 1px solid theme(default-bdc);
+    }
+  }
+
+
+  // Liens
+  .qa-nav-main-link {
+    box-shadow: none;
+
+    @include mq($until: MD) {
+      color: theme(nav-main-link-sm-txt);
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        opacity: .75;
+      }
+    }
+
+    @include mq($from: MD) {
+      min-height: rem(32); // 32px
+      color: theme(nav-main-link-txt);
+      line-height: lh(16, 14); // 16px
+
+      &:hover,
+      &:active {
+        box-shadow: 0 1px 0 0 currentColor;
+      }
+    }
+
+    // Page courante
+    &[aria-current="true"] {
+      color: theme(nav-main-link-current-txt);
+      box-shadow: 0 1px 0 0 currentColor;
+
+      &:hover {
+        cursor: default;
+        opacity: 1;
+      }
+
+      &:focus,
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+
+  // Lien poser une question
+  .qa-nav-main-ask .qa-nav-main-link {
+    @include mq($from: MD) {
+      padding: rem(4) rem(12); // 4px 12px
+      background-color: theme(nav-main-ask-bgc);
+      border-radius: rem(16); // 16px
+
+      &:hover,
+      &:active,
+      &[aria-current="true"] {
+        text-decoration: underline;
+        box-shadow: none;
+      }
+    }
+  }
+}

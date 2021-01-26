@@ -1,0 +1,49 @@
+@if $toc {
+  /* - Notification_______________Message d'erreur, d'avertissement et de succès */
+} @else {
+  /* Message d'erreur, d'avertissement et de succès [component]
+  ========================================================================== */
+
+  // Base commune
+  .qa-error,
+  .qa-warning,
+  .qa-success,
+  .qa-notice {
+    position: relative;
+    z-index: 999;
+    margin-bottom: rem(32); // 32px
+    padding: rem(24); // 24px
+    border-left-width: rem(4);
+    border-left-style: solid;
+
+    @include mq($from: SM) {
+      padding: rem(32) rem(48); // 32px 48px
+    }
+  }
+
+  .qa-error {
+    background-color: rgba(theme(error-bdc), .1);
+    border-left-color: theme(error-bdc);
+  }
+
+  .qa-warning {
+    background-color: rgba(theme(warning-bdc), .1);
+    border-left-color: theme(warning-bdc);
+  }
+
+  .qa-success {
+    background-color: rgba(theme(success-bdc), .1);
+    border-left-color: theme(success-bdc);
+  }
+
+  .qa-notice {
+    background-color: rgba(theme(notice-bdc), .1);
+    border-left-color: theme(notice-bdc);
+
+    &[id="notice_visitor"] {
+      margin-bottom: 0;
+      padding: rem(12) rem(24); // 12px
+      border-left-width: 0;
+    }
+  }
+}

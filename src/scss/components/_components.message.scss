@@ -1,0 +1,62 @@
+@if $toc {
+  /* - Message__________________Liste des messages du mur de l'utilisateur */
+} @else {
+  /* Liste des messages du mur de l'utilisateur [component]
+  ========================================================================== */
+
+  // Liste
+  .qa-message-list {
+    margin-top: rem(40); // 40px
+  }
+
+
+  // Élément de liste
+  .qa-message-item {
+    position: relative;
+    border-bottom: 1px solid theme(default-bdc);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+
+  // Texte du message
+  .qa-message-content {
+    min-height: rem(32); // 32px
+    padding: rem(16) rem(56) rem(8) rem(40); // 16px 56px 16px 40px
+    background: url("images/icon.svg#message-content") rem(-2) rem(12) / rem(32) rem(32) no-repeat; // -2px 12 / 32px 32px
+
+    // Texte d'un message privé
+    .qa-template-messages & {
+      padding-right: rem(200); // 200px
+    }
+  }
+
+
+  // Avatar
+  .qa-message-avatar {
+    display: none;
+  }
+
+
+  // Infos utilisateur
+  .qa-message-avatar-meta {
+    margin: 0 0 rem(20) rem(40); // 0 0 20px 40px
+    color: theme(message-avatar-meta);
+  }
+
+
+  // Conteneur du bouton de suppression
+  .qa-message-buttons {
+    position: absolute;
+    top: rem(16); // 16px
+    right: 0;
+  }
+
+
+  // Bouton de suppression
+  .qa-message-buttons .qa-form-light-button {
+    margin: 0;
+  }
+}

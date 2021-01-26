@@ -1,0 +1,76 @@
+@if $toc {
+  /* - Main heading_____________Titre principal des pages */
+} @else {
+  /* Titre principal des pages [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qa-main-heading {
+    position: relative; // Nécessaire au positionnement de l'icône RSS
+    padding-right: rem(32); // 32px
+
+    // Dans les pages de liste de tags
+    // Dans les pages de question des catégories
+    // Dans les pages d'activité récente
+    .qa-template-tag &,
+    .qa-template-questions &,
+    .qa-template-activity & {
+      padding-right: rem(64); // 64px
+    }
+
+    // Dans les pages utilisateur
+    .qa-template-user & {
+      padding-right: rem(176); // 176px
+    }
+  }
+
+
+  // Lien RSS
+  // Conteneur du bouton de mise en favori / suppression des favoris
+  .qam-rss,
+  .qa-favoriting {
+    position: absolute;
+    top: rem(30); // 30px
+    right: 0;
+    width: rem(24); // 24px
+    height: rem(24);
+  }
+
+
+  // Lien RSS
+  .qam-rss {
+    box-shadow: none;
+  }
+
+
+  // Icône
+  .qam-rss img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  // Conteneur du bouton de mise en favori / suppression des favoris
+  .qa-favoriting {
+    // Dans les pages de liste de tags
+    // Dans les pages de question des catégories
+    // Dans les pages d'activité récente
+    .qa-template-tag &,
+    .qa-template-questions &,
+    .qa-template-activity & {
+      right: rem(40); // 40px
+    }
+
+    // Bouton d'action
+    input {
+      @include unstyled-button($extend: true, $important: false);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: transparent;
+    }
+  }
+}

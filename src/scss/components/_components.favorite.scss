@@ -1,0 +1,32 @@
+@if $toc {
+  /* - Favorite_________________Mise en favori des tags, des catégories et des utilisateurs  */
+} @else {
+  /* Mise en favori des tags, des catégories et des utilisateurs [component]
+  ========================================================================== */
+
+  // Tags
+  [class].qa-tag-favorited {
+    padding-left: rem(32); // 32px
+  }
+
+  .qa-tag-favorited {
+    background-image: url("images/icon.svg#qa-favorite");
+    background-repeat: no-repeat;
+    background-position: #{rem(8)} #{rem(8)};
+    background-size: #{rem(16)} #{rem(16)};
+  }
+
+
+  // Catégories
+  // Utilistaeurs
+  .qa-cat-favorited,
+  .qa-browse-cat-favorited,
+  .qa-user-favorited {
+    margin-right: rem(4); // 4px
+    padding-right: rem(20); // 20px
+    background-image: url("images/icon.svg#qa-favorite");
+    background-repeat: no-repeat;
+    background-position: top #{rem(4)} right 0;
+    background-size: #{rem(16)} #{rem(16)};
+  }
+}

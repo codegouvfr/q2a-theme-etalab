@@ -1,0 +1,17 @@
+@if $toc {
+  /* - Checkbox / Radio_________Conteneur des cases à cocher et des boutons radio */
+} @else {
+  /* Conteneur des cases à cocher et des boutons radio [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qam-checkbox,
+  .qam-radio {
+    text-align: left;
+
+    // Qui est le dernier de ce type-là
+    &:last-of-type {
+      margin-bottom: rem(24); // 24px
+    }
+  }
+}

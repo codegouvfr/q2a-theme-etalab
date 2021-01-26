@@ -1,0 +1,11 @@
+@if $toc {
+  /* - Body___________________Contenu principal du site */
+} @else {
+  /* Contenu principal du site [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qam-body {
+    @extend %o-wrapper;
+  }
+}

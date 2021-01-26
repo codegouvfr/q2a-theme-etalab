@@ -1,0 +1,202 @@
+@if $toc {
+  /* - Q list___________________Liste de questions */
+} @else {
+  /* Liste de questions [component]
+  ========================================================================== */
+
+  // Conteneur global
+  .qa-q-list {
+    margin-bottom: rem(24); // 12px
+  }
+
+
+  // Conteneur individuel
+  .qa-q-list-item {
+    position: relative; // Nécessaire au positionnement des statistiques et du nombre de réponses
+    margin-bottom: rem(12); // 12px
+    padding: rem(16) rem(16) rem(16) rem(170); // 16px 16px 16px 170px
+    background-color: theme(q-list-item);
+
+    @include mq($from: SM) {
+      min-height: rem(175); // 175px
+      padding: rem(24) rem(24) rem(24) rem(192); // 24px 24px 24px 192px
+    }
+  }
+
+
+  // Question mise en favori
+  .qa-q-list-item.qa-q-favorited {
+    border-left: rem(4) solid theme(q-list-item--favorited-bdc);
+  }
+
+
+  // Titre
+  .qa-q-item-title {
+    margin: 0 0 rem(8) 0; // 0 0 8px 0
+    font-size: rem(20); // 20px
+    line-height: lh(33, 20); // 33px
+
+    @include mq($from: SM) {
+      font-size: rem(24); // 24px
+      line-height: lh(33, 24); // 33px
+    }
+  }
+
+
+  // Question cloturée
+  .qam-q-list-close-icon {
+    float: left;
+    margin: rem(10) rem(10) 0 0; // 10px 10px 0 0
+
+    @include mq($from: SM) {
+      margin: rem(12) rem(14) 0 0; // 12px 14px 0 0
+    }
+  }
+
+
+  // Statistiques
+  .qa-q-item-stats {
+    position: absolute;
+    top: rem(16); // 16px
+    left: rem(16);
+    width: rem(128); // 128px
+    padding-right: rem(8); // 8px
+    border-right: 1px solid theme(default-bdc);
+
+    @include mq($from: SM) {
+      top: rem(24); // 24px
+      left: rem(24);
+      width: rem(136); // 136px
+      padding-right: rem(16); // 16px
+    }
+  }
+
+
+  // Conteneur des votes
+  .qa-voting {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Nombre de votes calculé
+  .qa-voting-net {
+    justify-content: center;
+    min-height: rem(88); // 88px
+  }
+
+
+  // Conteneur des boutons
+  .qam-vote-first-button,
+  .qam-vote-second-button {
+    width: rem(16); // 16px
+    height: rem(16);
+    margin: 0 auto; // 0 auto
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+
+    @include mq($from: SM) {
+      width: rem(20); // 20px
+      height: rem(20);
+    }
+
+    &:focus-within {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
+  // Conteneur du second bouton
+  .qam-vote-second-button {
+    order: 3;
+  }
+
+
+  // Boutons de vote
+  [class*="qa-vote-button"] {
+    @include unstyled-button($extend: true, $important: false);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    // État désactivé
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  // Arrières-plan
+  $icons: "vote-up", "vote-down", "vote-up-disabled", "vote-down-disabled", "voted"; // stylelint-disable order/order
+
+  @each $icon in $icons {
+    .qam-#{$icon} {
+      background-image: url("images/icon.svg##{$icon}");
+    }
+  }
+
+
+  // Nombre de vues
+  // Nombre de vote
+  .qa-view-count,
+  .qa-vote-count {
+    font-size: rem(14); // 14px
+    line-height: lh(21, 16); // 21px
+    text-align: center;
+  }
+
+  // Nombre de vues
+  .qa-view-count {
+    margin-top: rem(12); // 12px
+  }
+
+  // Nombre de vote
+  .qa-vote-count {
+    display: block;
+    margin: rem(4) 0; // 4px 0
+  }
+
+
+  // Nombre de votes positifs
+  // Nombre de votes négatifs
+  // Nombre de vues
+  .qa-upvote-count,
+  .qa-downvote-count,
+  .qa-view-count {
+    display: block;
+  }
+
+  // Nombre de votes positifs
+  .qa-upvote-count {
+    margin-bottom: rem(4); // 4px
+  }
+
+  // Nombre de votes négatifs
+  .qa-downvote-count {
+    margin-top: rem(4); // 4px
+  }
+
+  // Nombre de vote calculé
+  .qa-vote-count {
+    margin: rem(8) 0; // 8px 0
+  }
+
+
+  // Détails divers
+  .qa-q-item-avatar-meta {
+    margin-bottom: rem(16); // 16px
+  }
+
+
+  // Date de publication
+  // Nombre de réponses
+  .qa-q-item-when-data,
+  .qa-a-count {
+    font-weight: 700;
+  }
+
+  // Nombre de réponses précédé d'une liste de tags
+  .qa-q-item-tags + .qa-a-count {
+    margin-top: rem(4);
+  }
+}

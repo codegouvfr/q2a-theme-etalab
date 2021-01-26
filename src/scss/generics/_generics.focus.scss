@@ -1,0 +1,17 @@
+@if $toc {
+  /* - Focus____________________Gestion du focus sur les éléments dotés d'un attribut `[tabindex="-1"] */
+} @else {
+  /* Gestion du focus sur les éléments dotés d'un attribut `[tabindex="-1"]`
+    ========================================================================== */
+
+  /**
+  * Supprime le focus des éléments inaccessibles au clavier.
+  * Cela évite qu'un contour non souhaité n'apparaisse autour d'éléments pouvant être survolés à la souris.
+  * @author [SUIT CSS](https://suitcss.github.io/)
+  * @see [Stackoverflow](https://stackoverflow.com/questions/32911355/whats-the-tabindex-1-in-bootstrap-for#32912224)
+  */
+
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+}

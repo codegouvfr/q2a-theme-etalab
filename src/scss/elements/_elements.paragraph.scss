@@ -1,0 +1,11 @@
+@if $toc {
+  /* - Paragraphs_______________Styles par défaut des paragraphes */
+} @else {
+  /* Styles par défaut des paragraphes [element]
+   ========================================================================== */
+
+  p {
+    font-size: rem(16); // 16px
+    line-height: 1.5; // 24px
+  }
+}

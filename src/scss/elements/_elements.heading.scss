@@ -1,0 +1,44 @@
+@if $toc {
+  /* - Heading_______________Styles par défaut des différents niveaux de titre */
+} @else {
+  /* Styles par défaut des différents niveaux de titre [element]
+   ========================================================================== */
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: theme(headline-txt);
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.25;
+  }
+
+
+  h1 {
+    margin-top: 0;
+    font-size: rem(44); // 44px
+
+    @include mq($from: SM) {
+      font-size: rem(48); // 48px
+    }
+  }
+
+  h2 {
+    font-size: rem(32); // 32px
+  }
+
+  h3 {
+    font-size: rem(24); // 24px
+  }
+
+  h4 {
+    font-size: rem(22); // 22px
+  }
+}
