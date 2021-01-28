@@ -4,7 +4,7 @@
 
 const rootPath  = '.';
 const srcPath   = rootPath + '/src';
-const buildPath = rootPath;
+const buildPath = rootPath + '/Etalab';
 
 module.exports = {
   settings: {
